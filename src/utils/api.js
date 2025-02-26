@@ -1,18 +1,16 @@
 const API_URL = 'https://jsonplaceholder.typicode.com';
 
-export default async function getPosts() {
+export async function getPosts() {
     const response = await fetch(`${API_URL}/posts`);
     return response.json();
 }
 
-export async function getUser(user_id) {
-    const response = await fetch(`${API_URL}/users/${user_id}`);
+export async function getUser(userId = 1) {  // Usa el parámetro correctamente
+    const response = await fetch(`${API_URL}/users/${userId}`);
     return response.json();
 }
 
-export async function getUserPosts(userId =1) {
-    const response =await fetch(`${API_URL})/posts?userId=${userId}`);
+export async function getUserPosts(userId) {
+    const response = await fetch(`${API_URL}/posts?userId=${userId}`);  // Paréntesis corregidos
     return response.json();
 }
-
-
